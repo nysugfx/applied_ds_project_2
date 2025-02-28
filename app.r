@@ -116,7 +116,7 @@ server <- function(input, output, session) {
   # Show welcome modal on startup
   observe({
     # Only show once per session
-    session$userData$welcome_shown <- session$userData$welcome_shown || FALSE
+    session$userData$welcome_shown <- isTRUE(session$userData$welcome_shown)
     
     if (!session$userData$welcome_shown) {
       showModal(
